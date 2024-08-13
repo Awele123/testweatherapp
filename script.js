@@ -43,4 +43,14 @@
     let currentDateELement = document.querySelector("#current-date");
     let currentDate = new Date();
 
-    currentDateELement.innerHTML = formatDate(currentDate);
+currentDateELement.innerHTML = formatDate(currentDate);
+function displayForecast() {
+      
+}
+    
+let forecast = document.querySelector("#forecast");
+forecast.innerhtml = ;
+  
+
+
+
