@@ -22,8 +22,8 @@
     function formatDate(date) {
       let minutes = date.getMinutes();
       let hours = date.getHours();
-      let day = date.getDay();
-      let days = [
+      let dayt = date.getDay();
+      let dayss = [
         "Sunday",
         "Monday",
         "Tuesday",
@@ -33,7 +33,7 @@
         "Saturday",
       ];
 
-      let formattedDay = days[day];
+      let formattedDay = dayss[dayt];
       return `${formattedDay} ${hours}:${minutes}`;
     }
 
@@ -44,13 +44,32 @@
     let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
+
 function displayForecast() {
-      
-}
-    
-let forecast = document.querySelector("#forecast");
-forecast.innerhtml = ;
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+   let forecastHtml = "";
   
+  days.forEach(function (day) {
+   
+    forecastHtml =
+      forecastHtml +
+      `
+      <div class="daycontainer" >
+    <div class="day">${day}</div>
+    <div class="icon">⛅</div>
+    <div class="tempcontainer">
+      <div class="temp"><strong>32&deg;</strong></div>
+      <div class="temp0">21&deg;</div>
+    </div>
+  </div >
+  `;
+  });
 
-
+ 
+forecastElement.innerHTML = forecastHtml;
+}
+SearchCity("Paris");
+displayForecast();
 

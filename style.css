@@ -101,7 +101,7 @@
       .daycontainer {
         margin: 30px;
       }
-      .day {
+      .dayt {
         color: rgb(0, 0, 0, 0.3);
       }
       .icon{
@@ -122,4 +122,4 @@
           
           padding-top: 15px 0 0 0;
           color: rgba(39, 33, 66, 0.4);
-      }
+      }`
