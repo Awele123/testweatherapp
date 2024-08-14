@@ -1,11 +1,9 @@
   function search(event) {
       event.preventDefault();
       let searchInputElement = document.querySelector("#search-input");
-      let citySearch = searchInputElement.value;
-      let apikey = "afb1fco0e30530debtd23f53ac7d4cbb";
-      let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${citySearch}&key=${apikey}`;
-
-      axios.get(apiUrl).then(displayTemperature);
+    let citySearch = searchInputElement.value;
+    
+     
     }
 
     function displayTemperature(response) {
@@ -19,10 +17,11 @@
       cityElement.innerHTML = city;
     }
 
+
     function formatDate(date) {
       let minutes = date.getMinutes();
       let hours = date.getHours();
-      let dayt = date.getDay();
+      let day = date.getDay();
       let dayss = [
         "Sunday",
         "Monday",
@@ -33,7 +32,7 @@
         "Saturday",
       ];
 
-      let formattedDay = dayss[dayt];
+      let formattedDay = dayss[day];
       return `${formattedDay} ${hours}:${minutes}`;
     }
 
@@ -48,11 +47,10 @@ currentDateELement.innerHTML = formatDate(currentDate);
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
-   let forecastHtml = "";
+  let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
+  let forecastHtml = "";
   
   days.forEach(function (day) {
-   
     forecastHtml =
       forecastHtml +
       `
@@ -66,10 +64,7 @@ function displayForecast() {
   </div >
   `;
   });
-
- 
-forecastElement.innerHTML = forecastHtml;
+  forecastElement.innerHTML = forecastHtml;
 }
-SearchCity("Paris");
 displayForecast();
 
