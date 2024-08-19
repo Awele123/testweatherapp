@@ -9,17 +9,16 @@
 
 function displayTemperature(response) {
       
-      let temperature = Math.round(response.data.temperature.current);
-      let temperatureElement = document.querySelector(
-        ".current-temperature-value"
-      );
-      temperatureElement.innerHTML = temperature;
-      let city = response.data.city;
-      let cityElement = document.querySelector("#current-city");
-      cityElement.innerHTML = city;
-    }
-
-
+  let temperature = Math.round(response.data.temperature.current);
+  let temperatureElement = document.querySelector(
+    ".current-temperature-value"
+  );
+  temperatureElement.innerHTML = temperature;
+  let city = response.data.city;
+  let cityElement = document.querySelector("#current-city");
+  cityElement.innerHTML = city;
+getForecast(response.data.city);
+}
     function formatDate(date) {
       let minutes = date.getMinutes();
       let hours = date.getHours();
@@ -46,10 +45,18 @@ function displayTemperature(response) {
 
 currentDateELement.innerHTML = formatDate(currentDate);
 
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-
+function getForecast(city) {
+  
+  let apikey = "afb1fco0e30530debtd23f53ac7d4cbb";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apikey}&units=metric`;
+  axios(apiURL).then(displayForecast);
+  console.log(apiURL);
+}
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
+
+  let forecastElement = document.querySelector("#forecast");
   let forecastHtml = "";
   
   days.forEach(function (day) {
@@ -57,10 +64,10 @@ function displayForecast() {
       forecastHtml +
       `
       <div class="daycontainer" >
-    <div class="day">${day}</div>
+    <div class="day">${day}</div >
     <div class="icon">⛅</div>
     <div class="tempcontainer">
-      <div class="temp"><strong>32&deg;</strong></div>
+      <div class="temp"><strong>10&deg;</strong></div>
       <div class="temp0">21&deg;</div>
     </div>
   </div >
@@ -69,5 +76,4 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHtml;
 }
 
-displayForecast();
 
