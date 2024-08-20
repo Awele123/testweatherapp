@@ -1,5 +1,6 @@
       body {
           background: #f9f7fe;
+          background-image: url(weatherr.jpg);
           font-family: "Roboto", sans-serif;
       }
 
@@ -93,30 +94,35 @@
           position: relative;
           top: -38px;
       }
-      .weatherforecast{
-        display: flex;
-        justify-content: center;
-        text-align: center;
-    
-        
-      }
-      .daycontainer {
-        margin: 30px;
-      }
       .day {
+        text-align: center;
         color: rgb(0, 0, 0, 0.3);
+        font-size: 36px;
+        line-height: 20px;
+        margin-bottom: 10px;
       }
       .icon{
-        font-size: 60px;
-        margin: 20px 0px 15px 0px;
+        width: 48px;
+        height: 48px ;
+        display: block;
+        margin: 0 auto;
       }
+.weatherforecast {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 30px;
+}
       .tempcontainer{
         display: flex;
-        gap: 15px;
+        justify-content:center;
         color: #f65282;
+        margin-top: 10px;
       }
       .temp{
-        font-weight:bold;
+        
+        padding: 0 10px;
+
       }
       footer {
           border-top: 1px solid #f9f7fe;
